@@ -1,0 +1,18 @@
+.table-sortable tbody tr {
+	background-color:#FFFFFF;
+    cursor: move;
+}
+
+tr{
+	background-color:#FFFFFF;
+}
+
+.container-full a {
+	color:#000000;
+  
+}
+.table-responsive{
+	overflow-x: inherit;
+
+}
+
