@@ -9,10 +9,13 @@
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/DynamicSortableTable.js"></script>
-  <script> $('#gopage').click(function(){
+  <script>
+  $(document).ready(function(){
+    $("button#gopage").on('click',function(){
+      document.location.href="./req.html";
+     });
+  })
 
-    //Some code
-           });
   </script>
 
   <title></title>
@@ -72,7 +75,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li>
                   <a href="">Logout</a>
-                </li>                
+                </li>
               </ul>
 
             </div>
@@ -129,7 +132,7 @@
                     <tbody>
                       <tr id='addr0' data-id="0" class="hidden">
                         <td data-name="go">
-                           <button name="del0" id="gopage" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
+                           <button id="gopage" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
                         </td>
                         <td data-name="name">
                           <input type="text" name='name0'  placeholder='Name' class="form-control" disabled/>
