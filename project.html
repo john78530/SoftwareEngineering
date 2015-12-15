@@ -46,7 +46,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav" style="width:80%;">
                 <li>
                   <a href="./project.html">Project</a>
                 </li>
@@ -62,7 +62,9 @@
                 <li>
                   <a href="./matrix.html">Matrix</a>
                 </li>
+                <li style="margin-left:50%;"><input onclick="" type="button" value="Logout" class="btn btn-primary btn-block btn-lg" tabindex="7"></li>
               </ul>
+
             </div>
             <!-- /.navbar-collapse -->
           </div>
@@ -92,7 +94,10 @@
                 <div class="col-md-12 table-responsive">
                   <table class="table table-bordered table-hover table-sortable" id="tab_logic">
                     <thead>
-                      <tr >
+                      <tr>
+                        <th class="text-center">
+                          
+                        </th>
                         <th class="text-center">
                           Name
                         </th>
@@ -111,6 +116,9 @@
                     </thead>
                     <tbody>
                       <tr id='addr0' data-id="0" class="hidden">
+                        <td data-name="go">
+                           <button nam"del0" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
+                        </td>
                         <td data-name="name">
                           <input type="text" name='name0'  placeholder='Name' class="form-control" disabled/>
 
@@ -132,7 +140,7 @@
 
 
                         <td data-name="del">
-                          <button nam"del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
+                          <button class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
                         </td>
                       </tr>
                     </tbody>
