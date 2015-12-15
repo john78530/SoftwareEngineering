@@ -15,4 +15,7 @@ tr{
 	overflow-x: inherit;
 
 }
+textarea {
+   resize: none;
+}
 
