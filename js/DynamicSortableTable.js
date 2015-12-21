@@ -47,14 +47,34 @@ $(document).ready(function() {
                     $(this).closest("tr").remove();
                 })
         ).appendTo($(tr));
-        */
-        
+*/
+
         // add the new row
         $(tr).appendTo($('#tab_logic'));
         
         $(tr).find("td button.row-remove").on("click", function() {
-             $(this).closest("tr").remove();
-        });
+           $(this).closest("tr").remove();
+       });
+
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        var min =today.getMinutes();
+        var hor =today.getHours()
+        
+
+
+        if(dd<10) {
+            dd='0'+dd
+        }if(mm<10) {
+            mm='0'+mm
+        } 
+
+        today = yyyy+'/'+mm+'/'+dd+':'+hor+':'+min;
+        $('input[name="date'+newid+'"]').val(today);
+
+
 });
 
 
@@ -64,14 +84,14 @@ $(document).ready(function() {
     var fixHelperModified = function(e, tr) {
         var $originals = tr.children();
         var $helper = tr.clone();
-    
+
         $helper.children().each(function(index) {
             $(this).width($originals.eq(index).width())
         });
         
         return $helper;
     };
-  
+
     $(".table-sortable tbody").sortable({
         helper: fixHelperModified      
     }).disableSelection();
