@@ -19,7 +19,7 @@
     name:"Jonathan",
     date:"1991-05-01",
     desc:"meOOOOOOw",
-    type:"1"
+    type:"3"
   },
   {
 
@@ -29,11 +29,15 @@
     type:"2"
   }];
   setTimeout(function() {
+    var e = document.getElementById("type");
+    var strUser = e.options[e.selectedIndex].value;
     for(var i in fake){
       if(i==0) continue;
       $('input[name="name'+i+'"]').val(fake[i].name);
       $('input[name="date'+i+'"]').val(fake[i].date);
       $('textarea[name="desc'+i+'"]').val(fake[i].desc);
+      $('select[name="action'+i+'"]>option[value="'+fake[i].type+'"]').attr("selected",true);
+
       $("#add_row").click();
     }
     //$('option#type').val(fake[0].type);

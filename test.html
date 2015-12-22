@@ -1,17 +1,14 @@
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<meta charset=utf-8 />
-
-
-
 <head>
-
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
+
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/DynamicSortableTable.js"></script>
 
   <title></title>
 
@@ -49,7 +46,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav" style="width:80%;">
                 <li>
                   <a href="./project.html">Project</a>
                 </li>
@@ -65,7 +62,9 @@
                 <li>
                   <a href="./matrix.html">Matrix</a>
                 </li>
+                <li style="margin-left:50%;"><input onclick="" type="button" value="Logout" class="btn btn-primary btn-block btn-lg" tabindex="7"></li>
               </ul>
+
             </div>
             <!-- /.navbar-collapse -->
           </div>
@@ -74,40 +73,97 @@
 
         <!-- Page Content -->
 
-        <link rel="stylesheet" type="text/css" href="css/test.css">
+        
         <div class="container-full">
-
+          <link rel="stylesheet" type="text/css" href="css/test.css">
           <div class="row">
-           
             <div class="col-lg-12 text-center v-center">
-              
-              <h1>Tests</h1>
+              <h1>Test</h1>
               <p class="lead">...</p>
-              
               <br>
-              
               <form class="col-lg-12">
-
               </form>
             </div>
-            
           </div> <!-- /row -->
           
-          <div class="row">
-           
-            <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
-              <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+          <div class="container">
+            <div class="container">
+              <link rel="stylesheet" type="text/css" href="css/tablebackground.css">
+              <a id="add_row"><i class="btn btn-success glyphicon glyphicon-plus pull-right"></i></a>
+              <link rel="stylesheet" type="text/css" href="css/DynamicSortableTable.css">
+              <br><br>
+              <div class="row clearfix">
+                <div class="col-md-12 table-responsive">
+                  <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                    <thead>
+                      <tr>
+                        <th class="text-center">
+                          Name
+                        </th>
+                        <th class="text-center">
+                          Date
+                        </th>
+                        <th class="text-center">
+                          Description
+                        </th>
+                        <th class="text-center">
+                          Status
+                        </th>
+                        <th class="text-center">
+                          Type
+                        </th>
+                        <th class="text-center">
+
+                        </th><!--
+                        <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+                        </th>-->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr id='addr0' data-id="0" class="hidden">
+                        <td data-name="name">
+                          <input id="name" type="text" name='name0'  placeholder='Name' class="form-control"/>
+                        </td>
+                        <td data-name="date">
+                          <input id="date" type="text" name='mail0' placeholder='Date' class="form-control"/>
+                        </td>
+                        <td data-name="desc">
+                          <textarea id="description" rows="3" cols="30" name="desc0" placeholder="Description" class="form-control"></textarea>
+                        </td>
+                        <td data-name="status">
+                          <span id="status" class="label-success label label-default">Active</span>
+                        </td>
+                        <td data-name="action">
+                          <select id="type" name="sel0">
+                            <option value="0">Select type</option>
+                            <option value="1">feature</option>
+                            <option value="2">bug</option>
+                            <option value="3">MEOW?</option>
+                          </select>
+                        </td>
+                        <td data-name="delete">
+                          <a>
+                            <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
             </div>
-            
+
+
           </div>
-          
+
           <br><br><br><br><br>
 
         </div> 
 
 
 
-
+      <!--<script type="text/javascript" src="js/req.js"></script>-->
 
 
 
@@ -115,10 +171,7 @@
         <!-- /.container -->
 
         <!-- jQuery -->
-        <script src="js/jquery.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
 
       </body>
       <!-- /container full -->
