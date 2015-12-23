@@ -6,12 +6,15 @@
   <meta name="author" content="">
 
   <script src="js/jquery.js"></script>
+  <script src="js/jquery.cookie.js"></script>
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/DynamicSortableTable.js"></script>
   <script>
   $(document).ready(function(){
     $("button#gopage").on('click',function(){
+      var projectName = $("input[name='name1']").val();
+      localStorage.setItem("projectName", projectName);
       document.location.href="./req.html";
      });
   })
@@ -74,7 +77,7 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li>
-                  <a href="">Logout</a>
+                  <input onclick="" type="button" value="Logout" class="btn btn-primary btn-block btn-lg" tabindex="7">
                 </li>
               </ul>
 

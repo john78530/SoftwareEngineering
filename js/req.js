@@ -2,8 +2,8 @@
 //var register  = function(){
 
   var fake = [{},{
-
-    name:"tony",
+    //name:"tony"
+    name:localStorage.getItem("projectName"),
     date:"15-20",
     desc:"haha",
     type:"1"
@@ -55,4 +55,3 @@
   //   reqDescription:$('#name')"testDES"
   //   reqType:$('#name')"bug"
   // };
-
