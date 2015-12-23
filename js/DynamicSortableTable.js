@@ -66,10 +66,14 @@ $(document).ready(function() {
 
 
         if(dd<10) {
-            dd='0'+dd
+            dd='0'+dd;
         }if(mm<10) {
-            mm='0'+mm
-        } 
+            mm='0'+mm;
+        }if(hor<10){
+           hor='0'+hor; 
+        }if(min<10){
+           min='0'+min;
+        }
 
         today = yyyy+'/'+mm+'/'+dd+':'+hor+':'+min;
         $('input[name="date'+newid+'"]').val(today);
