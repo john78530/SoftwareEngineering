@@ -10,7 +10,6 @@
 	<script src="js/jquery-ui.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/DynamicSortableTable.js"></script>
-
 	<title></title>
 
 	<!-- Bootstrap Core CSS -->
@@ -102,6 +101,9 @@
     						<table class="table table-bordered table-hover table-sortable" id="tab_logic">
     							<thead>
     								<tr>
+											<th class="text-center">
+    										ID
+    									</th>
     									<th class="text-center">
     										Name
     									</th>
@@ -112,21 +114,20 @@
     										Description
     									</th>
     									<th class="text-center">
-    										Relations
+    										SubRequirement
     									</th>
-    									
-    									<th class="text-center">
-    										Type
-    									</th>
-    									<th class="text-center">
-
-                        </th><!--
-                        <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
-                        </th>-->
+											<th class="text-center">
+											 Related REQ ID
+										 </th> 
+                      <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+                      </th>
                     </tr>
                 </thead>
                 <tbody>
                 	<tr id='addr0' data-id="0" class="hidden">
+										<td data-name="id">
+                			<input id="reqid" type="text" name='id0'  placeholder='id' class="form-control" disabled/>
+                		</td>
                 		<td data-name="name">
                 			<input id="name" type="text" name='name0'  placeholder='Name' class="form-control"/>
                 		</td>
@@ -136,24 +137,27 @@
                 		<td data-name="desc">
                 			<textarea id="description" rows="3" cols="30" name="desc0" placeholder="Description" class="form-control"></textarea>
                 		</td>
-                		<td data-name="relations"><a>
-                            <input style="width:70%;display:inline;" id="relations" type="text" name='name0'  placeholder='relations' class="form-control"/>
+                		<td data-name="subrequirement"><a>
+                            <input style="width:70%;display:inline;" id="subrequid" type="text" name='name0'  placeholder='subrequirement' class="form-control"/>
                             <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
                 		</td>
-                		
-                		<td data-name="action">
+										<td data-name="related">
+										 <a>
+												 <input style="width:70%;display:inline;" id="relations" type="text" name='name0'  placeholder='relations' class="form-control"/>
+												 <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
+									 </td>
+
+                		<!-- <td data-name="action">
                 			<select id="type" name="sel0">
                 				<option value"">Select type</option>
                 				<option value"1">feature</option>
                 				<option value"2">bug</option>
                 				<option value"3">MEOW?</option>
                 			</select>
-                		</td>
+                		</td> -->
                 		<td data-name="delete">
-                			<a>
-								<button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
+								        <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
                 				<button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
-                			</a>
                 		</td>
                 	</tr>
                 </tbody>

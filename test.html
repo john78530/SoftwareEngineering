@@ -111,47 +111,44 @@
                     <thead>
                       <tr>
                         <th class="text-center">
-
-                        </th>
-                        <th class="text-center">
                           Test ID
                         </th>
-                        <th class="text-center">
-                          Related REQ
-                        </th>
+                         <th class="text-center">
+                          Related REQ ID
+                        </th> 
                         <th class="text-center">
                           Description
                         </th>
 <!--                         <th class="text-center">
                           Status
                         </th> -->
-                        
+
                         <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr id='addr0' data-id="0" class="hidden">
-                        <td data-name="go">
+                        <!-- <td data-name="go">
                          <button id="gopage" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
-                       </td>
+                       </td> -->
                        <td data-name="name">
-                        <input type="text" name='name0'  placeholder='Name' class="form-control"/>
+                        <input type="text" name='name0'  placeholder='Test ID' class="form-control" disabled/>
                       </td>
-                      <td data-name="related">
+                       <td data-name="related">
                         <a>
                             <input style="width:70%;display:inline;" id="relations" type="text" name='name0'  placeholder='relations' class="form-control"/>
                             <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
                       </td>
                       <td data-name="desc">
-                        <textarea name="desc0" placeholder="Members" class="form-control"></textarea>
+                        <textarea name="desc0" placeholder="Description" class="form-control"></textarea>
                       </td>
 <!--                      <td data-name="status">
                         <span id="status" class="label-success label label-default">Active</span>
                       </td>-->
                       <td data-name="del">
                         <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
-                        <button class="btn btn-info glyphicon glyphicon-user"></button>
+                        <!-- <button class="btn btn-info glyphicon glyphicon-user"></button> -->
                         <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
                       </td>
                     </tr>

@@ -13,8 +13,6 @@
   <script>
   $(document).ready(function(){
     $("button#gopage").on('click',function(){
-      var projectName = $("input[name='name1']").val();
-      localStorage.setItem("projectName", projectName);
       document.location.href="./req.html";
      });
   })
@@ -126,7 +124,7 @@
                           Members
                         </th>
                         <th class="text-center">
-                          Option
+                          Select identity
                         </th>
                         <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
                         </th>
@@ -148,16 +146,15 @@
                         </td>
                         <td data-name="sel">
                           <select name="sel0">
-                            <option value"">Select Option</option>
-                            <option value"1">Option 1</option>
-                            <option value"2">Option 2</option>
-                            <option value"3">Option 3</option>
+                            <option value"1">Project Manager</option>
+                            <option value"2">Team Member</option>
+                            <option value"3">Reviewer</option>
                           </select>
                         </td>
 
                         <td data-name="del">
                           <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
-                          <button class="btn btn-info glyphicon glyphicon-user"></button>
+                          <!-- <button class="btn btn-info glyphicon glyphicon-user"></button> -->
                           <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
                         </td>
                       </tr>

@@ -30,7 +30,7 @@
   }];
   setTimeout(function() {
     var e = document.getElementById("type");
-    var strUser = e.options[e.selectedIndex].value;
+    //var strUser = e.options[e.selectedIndex].value;
     for(var i in fake){
       if(i==0) continue;
       $('input[name="name'+i+'"]').val(fake[i].name);

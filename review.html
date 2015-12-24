@@ -12,6 +12,8 @@
   <script>
   $(document).ready(function(){
     $("button#gopage").on('click',function(){
+      var projectName = $("input[name='name1']").val();
+      localStorage.setItem("projectName", projectName);
       document.location.href="./req.html";
      });
   })
@@ -102,7 +104,7 @@
           <div class="container">
             <div class="container">
               <link rel="stylesheet" type="text/css" href="css/tablebackground.css">
-              <a id="add_row"><i class="btn btn-success glyphicon glyphicon-plus pull-right"></i></a>
+                <a id="add_row"><!--<i class="btn btn-success glyphicon glyphicon-plus pull-right"></i>--></a>
               <link rel="stylesheet" type="text/css" href="css/DynamicSortableTable.css">
               <br><br>
               <div class="row clearfix">
@@ -111,19 +113,19 @@
                     <thead>
                       <tr>
                         <th class="text-center">
-
+                          REQ ID
                         </th>
                         <th class="text-center">
-                          Name
+      										Name
+      									</th>
+                        <th class="text-center">
+                          Last modified date
                         </th>
                         <th class="text-center">
-                          Built date
+                          Description
                         </th>
                         <th class="text-center">
-                          Members
-                        </th>
-                        <th class="text-center">
-                          Option
+                          SubRequirement
                         </th>
                         <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
                         </th>
@@ -131,11 +133,14 @@
                     </thead>
                     <tbody>
                       <tr id='addr0' data-id="0" class="hidden">
-                        <td data-name="go">
+                        <!-- <td data-name="go">
                            <button id="gopage" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
+                        </td> -->
+                        <td data-name="id">
+                          <input type="text" name='id0'  placeholder='id' class="form-control" disabled/>
                         </td>
                         <td data-name="name">
-                          <input type="text" name='name0'  placeholder='Name' class="form-control"/>
+                          <input id="name" type="text" name='name0'  placeholder='Name' class="form-control" disabled/>
                         </td>
                         <td data-name="date">
                           <input type="text" name='mail0' placeholder='date' class="form-control" disabled/>
@@ -143,19 +148,22 @@
                         <td data-name="desc">
                           <textarea name="desc0" placeholder="Members" class="form-control"></textarea>
                         </td>
-                        <td data-name="sel">
+                        <td data-name="subrequirement">
+                                <input style="width:70%;display:inline;" id="subrequid" type="text" name='name0'  placeholder='subrequirement' class="form-control"/>
+                    		</td>
+                        <!-- <td data-name="sel">
                           <select name="sel0">
                             <option value"">Select Option</option>
                             <option value"1">Option 1</option>
                             <option value"2">Option 2</option>
                             <option value"3">Option 3</option>
                           </select>
-                        </td>
+                        </td> -->
 
 
                         <td data-name="del">
                           <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
-                          <button class="btn btn-info glyphicon glyphicon-user"></button>
+                          <!-- <button class="btn btn-info glyphicon glyphicon-user"></button> -->
                           <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
                         </td>
                       </tr>
