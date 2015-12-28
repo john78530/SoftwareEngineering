@@ -10,23 +10,28 @@
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/DynamicSortableTable.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
   <script>
   $(document).ready(function(){
     $("button#gopage").on('click',function(){
       document.location.href="./req.html";
      });
+     $("button#memid").on('click',function(){
+          $("#dialogmodalid").show();
+          $("#dialog").dialog();
+          console.log(">///<");
+       });
   })
-
   </script>
-
   <title></title>
 
   <!-- Bootstrap Core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-
   <!-- Custom CSS -->
   <link href="css/logo-nav.css" rel="stylesheet">
-
+  <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -101,6 +106,22 @@
             </div>
           </div> <!-- /row -->
 
+            <div id="dialogmodalid" class="modal-dialog" role="document" style="visibility:hidden;" >
+            <div class="modal-content">
+                <div  class="container-fluid">
+                    <div id="dialog" title="Add Member" style="margin:0 auto;" class="col-xs-12 col-sm-8 col-md-12 col-sm-offset-2 col-md-offset-0">
+
+                       <label name="name">Name</label>
+                       <input type="text" name="name" id="nameid" class="text ui-widget-content ui-corner-all" />
+                       <select name="sel0">
+                         <option value"1">Project Manager</option>
+                         <option value"2">Team Member</option>
+                         <option value"3">Reviewer</option>
+                       </select>
+                    </div>
+                </div>
+            </div>
+          </div>
           <div class="container">
             <div class="container">
               <link rel="stylesheet" type="text/css" href="css/tablebackground.css">
@@ -125,7 +146,7 @@
                           Members
                         </th>
                         <th class="text-center">
-                          Select identity
+                          Add Member
                         </th>
                         <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
                         </th>
@@ -143,16 +164,13 @@
                           <textarea name="desc" placeholder="Descriptions" class="form-control"></textarea>
                         </td>
                         <td data-name="memb0">
-                          <textarea name="memb0" placeholder="Members" class="form-control"></textarea>
+                          <!-- <textarea name="memb0" placeholder="Members" class="form-control" ></textarea> -->
+                          <!-- <button id="memid" class='btn btn-success glyphicon glyphicon-plus'></button> -->
+                          <input type="text" name='memb0'  placeholder='Member' class="form-control" disabled/>
                         </td>
-                        <td data-name="sel">
-                          <select name="sel0">
-                            <option value"1">Project Manager</option>
-                            <option value"2">Team Member</option>
-                            <option value"3">Reviewer</option>
-                          </select>
+                        <td data-name="addmemb0">
+                          <button id="memid" class='btn btn-success glyphicon glyphicon-plus'></button>
                         </td>
-
                         <td data-name="del">
                           <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
                           <!-- <button class="btn btn-info glyphicon glyphicon-user"></button> -->

@@ -2,7 +2,7 @@ console.log('register');
 var register  = function(){
 
   var obj = {
-    username:$('#display_name')[0].value,
+     username:$('#display_name')[0].value,
      email: $('#email')[0].value,
      password: $('#password')[0].value
   }
