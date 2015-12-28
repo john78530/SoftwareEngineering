@@ -55,6 +55,9 @@ $(document).ready(function() {
         $(tr).find("td button.row-remove").on("click", function() {
            $(this).closest("tr").remove();
        });
+        $(tr).find("td button.gopage").on("click", function() {
+            document.location.href="./req.html";
+       });
 
         var today = new Date();
         var dd = today.getDate();
@@ -77,6 +80,7 @@ $(document).ready(function() {
 
         today = yyyy+'/'+mm+'/'+dd+':'+hor+':'+min;
         $('input[name="date'+newid+'"]').val(today);
+
 
 
 });
@@ -106,3 +110,9 @@ $(document).ready(function() {
 
     $("#add_row").trigger("click");
 });
+
+  $(document).ready(function(){
+    $("button#gopage").on('click',function(){
+      document.location.href="./req.html";
+     });
+  })
