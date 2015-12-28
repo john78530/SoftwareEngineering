@@ -81,7 +81,9 @@ $(document).ready(function() {
         today = yyyy+'/'+mm+'/'+dd+':'+hor+':'+min;
         $('input[name="date'+newid+'"]').val(today);
 
-
+    $("#add_member").on("click", function() {
+        $('input[name="memb'+newid+'"]').val(today);
+    });
 
 });
 
@@ -115,4 +117,6 @@ $(document).ready(function() {
     $("button#gopage").on('click',function(){
       document.location.href="./req.html";
      });
-  })
+  });
+
+

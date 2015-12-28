@@ -37,3 +37,10 @@ $(document).on('click', function (e) {
         $(".btn-select").removeClass("active").find("ul").hide();
     }
 });
+
+var add_member  = function(){
+        console.log('add_member');
+
+
+
+}
