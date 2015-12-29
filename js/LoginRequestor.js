@@ -1,7 +1,8 @@
-console.log('register');
-var register  = function(){
+﻿console.log('login');
+var login  = function(){
 
   var obj = {
+    id:$('#id')[0].value,
     username:$('#display_name')[0].value,
     email: $('#email')[0].value,
     password: $('#password')[0].value
@@ -9,7 +10,7 @@ var register  = function(){
   console.log(JSON.stringify(obj));
   $.ajax({
    //api的url
-   url: 'http://140.124.181.160:8080/softwareEngineer/accounts',
+   url: 'http://140.124.181.160:8080/softwareEngineer/Login',
    dataType: 'json',
    contentType: 'application/json',
    data: JSON.stringify(obj),
