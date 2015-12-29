@@ -136,36 +136,39 @@ var add_proj = function(elem){
 //console.log('register');
 //var register  = function(){
 
-  var fake = [{},{
-    //name:"tony"
-    name:"slfhaslfijh",
-    desc:"slfhaslfijh"
-  },
-  {
-    name:"slfhqwrdfsdfaslfijh",
-    desc:"213"
-  },
-  {
-
-    name:"YEE",
-    desc:"12346789"
-  },
-  {
-
-    name:"6746876",
-    desc:"slfhaslfijh"
-  }];
+  // var fake = [{},{
+  //   //name:"tony"
+  //   name:"slfhaslfijh",
+  //   desc:"slfhaslfijh"
+  // },
+  // {
+  //   name:"slfhqwrdfsdfaslfijh",
+  //   desc:"213"
+  // },
+  // {
+  //
+  //   name:"YEE",
+  //   desc:"12346789"
+  // },
+  // {
+  //
+  //   name:"6746876",
+  //   desc:"slfhaslfijh"
+  // }];
   setTimeout(function() {
     var e = document.getElementById("type");
+    $.getJSON("http://140.124.181.160:8080/softwareEngineer/projects", function(json){
+       alert("JSON Data: " + json.users[0].name);
+    });
     //var strUser = e.options[e.selectedIndex].value;
-    for(var i in fake){
-      if(i==0) continue;
-      $('input[name="name'+i+'"]').val(fake[i].name);
-      $('textarea[name="desc'+i+'"]').val(fake[i].desc);
-      $('select[name="action'+i+'"]>option[value="'+fake[i].type+'"]').attr("selected",true);
-
-      $("#add_row").click();
-    }
+    // for(var i in fake){
+    //   if(i==0) continue;
+    //   $('input[name="name'+i+'"]').val(fake[i].name);
+    //   $('textarea[name="desc'+i+'"]').val(fake[i].desc);
+    //   $('select[name="action'+i+'"]>option[value="'+fake[i].type+'"]').attr("selected",true);
+    //
+    //   $("#add_row").click();
+    // }
     //$('option#type').val(fake[0].type);
   }, 1000);
   //  var req = {
