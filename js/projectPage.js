@@ -6,6 +6,10 @@ $(document).ready(function () {
             $(this).find(".btn-select-value").html(value);
         }
     });
+
+
+
+  
 });
 
 $(document).on('click', '.btn-select', function (e) {
@@ -88,50 +92,44 @@ var add_proj = function(elem){
     
 }
 
-//console.log('getProjects');
-// var getProjects  = function(){
+console.log('getProjects');
+var getProjects  = function(){
 
-//   // var obj = {
-//   //   id: localStorage.getItem("id")
-//   // }
-//     var obj = {
-//     id: $('#username')[0].value,
-//     name: $('#password')[0].value,
-//   }
-//   console.log(JSON.stringify(obj));
-//   $.ajax({
-//    //api的url
-//    url: 'http://140.124.181.160:8080/softwareEngineer/projects',
-//    dataType: 'json',
-//    contentType: 'application/json',
-//    data: JSON.stringify(obj),
-//    error: function(err) {
-//      console.log(err);
-//      $.msgBox({
-//       title: "Ooops",
-//       content: "ERROR occurred!!!",
-//       type: "error",
-//       showButtons: false,
-//       opacity: 0.9,
-//       autoClose:true
-//     });
+    var obj = {
+        id:$('')[0].value,
+    name: $('#username')[0].value,
+    notes: $('#password')[0].value
+  }
+  console.log(JSON.stringify(obj));
+  $.ajax({
+   url: 'http://140.124.181.160:8080/softwareEngineer/projects',
+   method: 'get',
+   dataType: 'json',
+   contentType: 'application/json',
+   data: JSON.stringify(obj),
+   error: function(err) {
+     console.log(err);
+     $.msgBox({
+      title: "Ooops",
+      content: "ERROR occurred!!!",
+      type: "error",
+      showButtons: false,
+      opacity: 0.9,
+      autoClose:true
+    });
 
-//       // $('#info').html('<p>An error has occurred</p>');
-//     },
-//     success: function(data) {
-//       // var $title = $('<h1>').text(data.talks[0].talk_title);
-//       // var $description = $('<p>').text(data.talks[0].talk_description);
-//       // $('#info')
-//       //    .append($title)
-//       //    .append($description);
-//       localStorage.setItem("id", data.id);
-//       console.log(data);
-//       location.href = "http://john78530.github.io/project.html";      
-//     },
-//     method: 'post'
+      // $('#info').html('<p>An error has occurred</p>');
+    },
+    success: function(data) {
 
-//   });
-// }
+      localStorage.setItem("projectID", data.id);
+      console.log(data);
+      location.href = "http://john78530.github.io/project.html";      
+    },
+    
+
+  });
+}
 
 
 
