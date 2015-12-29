@@ -147,6 +147,7 @@ console.log('dddddddddddddddddddddddddddddd');
                   success: function(msg){
                     var projectInformation = eval(msg);
                     console.log(projectInformation);
+                    // 塞到畫面上
                      $('input[name="name1"]').val(projectInformation.name);
                      $('textarea[name="desc1"]').val(projectInformation.note);
                   },
@@ -156,9 +157,6 @@ console.log('dddddddddddddddddddddddddddddd');
             });
             /////
           });
-          // 塞到畫面上
-          // $('input[name="name1"]').val(projects.name);
-          // $('textarea[name="desc1"]').val(projects.note);
           // // 動態產生 TR 去塞資料
           // $('tbody[class="ui-sortable"]').append("<div>SSSSSSSSSSSSSSSSSSSSSSSSSSSSs</div>");
         },
