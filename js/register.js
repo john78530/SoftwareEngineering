@@ -33,7 +33,7 @@ var register  = function(){
       //    .append($description);
       
       console.log(data);
-      location.href = "http://http://john78530.github.io/index.html";  
+      location.href = "http://john78530.github.io/index.html";  
    },
    method: 'post'
 });
