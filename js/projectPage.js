@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 
 
-  
+
 });
 
 $(document).on('click', '.btn-select', function (e) {
@@ -89,49 +89,96 @@ var add_proj = function(elem){
     var desc = $("[name='desc"+elem.name+"']").val();
     console.log(name+" "+desc);
     newProject(name, desc);
-    
+
 }
 
 console.log('getProjects');
 var getProjects  = function(){
-
-    var obj = {
-        id:$('')[0].value,
+console.log('dddddddddddddddddddddddddddddd');
+  var obj = {
+    id:$('')[0].value,
     name: $('#username')[0].value,
     notes: $('#password')[0].value
   }
-  console.log(JSON.stringify(obj));
+
+  // Get all Projects
+  var projects = [];
+
   $.ajax({
-   url: 'http://140.124.181.160:8080/softwareEngineer/projects',
-   method: 'get',
-   dataType: 'json',
-   contentType: 'application/json',
-   data: JSON.stringify(obj),
-   error: function(err) {
-     console.log(err);
-     $.msgBox({
-      title: "Ooops",
-      content: "ERROR occurred!!!",
-      type: "error",
-      showButtons: false,
-      opacity: 0.9,
-      autoClose:true
-    });
-
-      // $('#info').html('<p>An error has occurred</p>');
-    },
-    success: function(data) {
-
-      localStorage.setItem("projectID", data.id);
-      console.log(data);
-      location.href = "http://john78530.github.io/project.html";      
-    },
-    
-
+        url: 'http://140.124.181.160:8080/softwareEngineer/projects/',
+        type:"GET",
+        success: function(msg){
+          // JSON get here
+          projects = $.parseJSON('[' + msg + ']');
+          console.log(projects);
+          localStorage.setItem("projectID", data.id);
+          location.href = "http://john78530.github.io/project.html";
+        },
+        error:function(err){
+          console.log(err);
+          $.msgBox({
+           title: "Ooops",
+           content: "ERROR occurred!!!",
+           type: "error",
+           showButtons: false,
+           opacity: 0.9,
+           autoClose:true
+         });
+        }
   });
 }
 
-<<<<<<< HEAD
+/////////////////////////
+
+  // Get all Projects
+  var projects = [];
+  $.ajax({
+        url: 'http://140.124.181.160:8080/softwareEngineer/member/' + localStorage.getItem("user_id"),
+        type:"GET",
+        success: function(msg){
+          // JSON get here
+          projects = eval(msg);
+          console.log(projects);
+          projects.forEach(function(project) {
+            /////
+            $.ajax({
+                  url: 'http://140.124.181.160:8080/softwareEngineer/projects/' + project.project_id,
+                  type:"GET",
+                  success: function(msg){
+                    var projectInformation = eval(msg);
+                    console.log(projectInformation);
+                     $('input[name="name1"]').val(projectInformation.name);
+                     $('textarea[name="desc1"]').val(projectInformation.note);
+                  },
+                  error:function(err){
+                    console.log(err);
+                  }
+            });
+            /////
+          });
+          // 塞到畫面上
+          // $('input[name="name1"]').val(projects.name);
+          // $('textarea[name="desc1"]').val(projects.note);
+          // // 動態產生 TR 去塞資料
+          // $('tbody[class="ui-sortable"]').append("<div>SSSSSSSSSSSSSSSSSSSSSSSSSSSSs</div>");
+        },
+        error:function(err){
+          console.log(err);
+          $.msgBox({
+           title: "Ooops",
+           content: "ERROR occurred!!!",
+           type: "error",
+           showButtons: false,
+           opacity: 0.9,
+           autoClose:true
+         });
+        }
+  });
+
+
+
+
+
 //console.log('getProjects');
 // var getProjects  = function(){
 
@@ -199,11 +246,12 @@ var getProjects  = function(){
   //   name:"6746876",
   //   desc:"slfhaslfijh"
   // }];
-  setTimeout(function() {
-    var e = document.getElementById("type");
-    $.getJSON("http://140.124.181.160:8080/softwareEngineer/projects", function(json){
-       alert("JSON Data: " + json.users[0].name);
-    });
+  //setTimeout(function() {
+    // var e = document.getElementById("type");
+    // $.getJSON("http://140.124.181.160:8080/softwareEngineer/projects", function(json){
+    //    alert("JSON Data: " + json);
+    // });
+
     //var strUser = e.options[e.selectedIndex].value;
     // for(var i in fake){
     //   if(i==0) continue;
@@ -214,7 +262,7 @@ var getProjects  = function(){
     //   $("#add_row").click();
     // }
     //$('option#type').val(fake[0].type);
-  }, 1000);
+  //}, 1000);
   //  var req = {
   //   reqName:$('#name')[0].value,
   //   reqDate: $('#date')[0].value,
@@ -228,9 +276,4 @@ var getProjects  = function(){
   //   reqDescription:$('#name')"testDES"
   //   reqType:$('#name')"bug"
   // };
-=======
-
-
-
-
->>>>>>> 7278791e1a7013a1f8d9ce89050d64abbdaa2622
+// =======
