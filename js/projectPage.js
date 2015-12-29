@@ -6,6 +6,10 @@ $(document).ready(function () {
             $(this).find(".btn-select-value").html(value);
         }
     });
+
+
+
+  
 });
 
 $(document).on('click', '.btn-select', function (e) {
@@ -85,9 +89,49 @@ var add_proj = function(elem){
     var desc = $("[name='desc"+elem.name+"']").val();
     console.log(name+" "+desc);
     newProject(name, desc);
-
+    
 }
 
+console.log('getProjects');
+var getProjects  = function(){
+
+    var obj = {
+        id:$('')[0].value,
+    name: $('#username')[0].value,
+    notes: $('#password')[0].value
+  }
+  console.log(JSON.stringify(obj));
+  $.ajax({
+   url: 'http://140.124.181.160:8080/softwareEngineer/projects',
+   method: 'get',
+   dataType: 'json',
+   contentType: 'application/json',
+   data: JSON.stringify(obj),
+   error: function(err) {
+     console.log(err);
+     $.msgBox({
+      title: "Ooops",
+      content: "ERROR occurred!!!",
+      type: "error",
+      showButtons: false,
+      opacity: 0.9,
+      autoClose:true
+    });
+
+      // $('#info').html('<p>An error has occurred</p>');
+    },
+    success: function(data) {
+
+      localStorage.setItem("projectID", data.id);
+      console.log(data);
+      location.href = "http://john78530.github.io/project.html";      
+    },
+    
+
+  });
+}
+
+<<<<<<< HEAD
 //console.log('getProjects');
 // var getProjects  = function(){
 
@@ -184,3 +228,9 @@ var add_proj = function(elem){
   //   reqDescription:$('#name')"testDES"
   //   reqType:$('#name')"bug"
   // };
+=======
+
+
+
+
+>>>>>>> 7278791e1a7013a1f8d9ce89050d64abbdaa2622
