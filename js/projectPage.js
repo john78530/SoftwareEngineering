@@ -85,7 +85,7 @@ var add_proj = function(elem){
     var desc = $("[name='desc"+elem.name+"']").val();
     console.log(name+" "+desc);
     newProject(name, desc);
-    
+
 }
 
 //console.log('getProjects');
@@ -126,14 +126,58 @@ var add_proj = function(elem){
 //       //    .append($description);
 //       localStorage.setItem("id", data.id);
 //       console.log(data);
-//       location.href = "http://john78530.github.io/project.html";      
+//       location.href = "http://john78530.github.io/project.html";
 //     },
 //     method: 'post'
 
 //   });
 // }
 
+//console.log('register');
+//var register  = function(){
 
+  var fake = [{},{
+    //name:"tony"
+    name:"slfhaslfijh",
+    desc:"slfhaslfijh"
+  },
+  {
+    name:"slfhqwrdfsdfaslfijh",
+    desc:"213"
+  },
+  {
 
+    name:"YEE",
+    desc:"12346789"
+  },
+  {
 
+    name:"6746876",
+    desc:"slfhaslfijh"
+  }];
+  setTimeout(function() {
+    var e = document.getElementById("type");
+    //var strUser = e.options[e.selectedIndex].value;
+    for(var i in fake){
+      if(i==0) continue;
+      $('input[name="name'+i+'"]').val(fake[i].name);
+      $('textarea[name="desc'+i+'"]').val(fake[i].desc);
+      $('select[name="action'+i+'"]>option[value="'+fake[i].type+'"]').attr("selected",true);
 
+      $("#add_row").click();
+    }
+    //$('option#type').val(fake[0].type);
+  }, 1000);
+  //  var req = {
+  //   reqName:$('#name')[0].value,
+  //   reqDate: $('#date')[0].value,
+  //   reqDescription: $('#description')[0].value
+  //   reqType: $('#type')[0].value
+  // };
+
+  //  var req = {
+  //   reqName:$('#name')"testName"
+  //   reqDate: $('#name')"2015/12/12"
+  //   reqDescription:$('#name')"testDES"
+  //   reqType:$('#name')"bug"
+  // };
