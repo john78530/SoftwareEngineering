@@ -34,7 +34,7 @@ var login  = function(){
       //    .append($description);
       localStorage.setItem("id", data.id);
       console.log(data);
-      location.href = "http://140.124.181.160:8080/web/project.html";      
+      location.href = "http://http://john78530.github.io/project.html";      
     },
     method: 'post'
 
