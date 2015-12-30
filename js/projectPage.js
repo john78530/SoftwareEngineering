@@ -148,8 +148,14 @@ console.log('dddddddddddddddddddddddddddddd');
                     var projectInformation = eval(msg);
                     console.log(projectInformation);
                     // 塞到畫面上
-                     $('input[name="name1"]').val(projectInformation.name);
-                     $('textarea[name="desc1"]').val(projectInformation.note);
+                    var name_id = "name" + project.project_id;
+                    var textarea_id = "desc" + project.project_id;
+                    var addr_id = project.project_id;
+                    // Append TR
+                    var tr = $('tr[id="addr1"]').clone().attr("id", "addr"+addr_id).attr("data-id", 3);
+                    $('tbody[class="ui-sortable"]').append(tr);
+                    //$("input[" + name_id + "]").val(projectInformation.name);
+                     //$('textarea[name="desc1" + 'project.project_id']').val(projectInformation.note);
                   },
                   error:function(err){
                     console.log(err);
