@@ -91,7 +91,7 @@ var add_proj = function(elem){
     newProject(name, desc);
 
 }
-
+/*
 console.log('getProjects');
 var getProjects  = function(){
 console.log('dddddddddddddddddddddddddddddd');
@@ -126,7 +126,7 @@ console.log('dddddddddddddddddddddddddddddd');
          });
         }
   });
-}
+}*/
 
 /////////////////////////
 
@@ -139,6 +139,7 @@ console.log('dddddddddddddddddddddddddddddd');
           // JSON get here
           projects = eval(msg);
           console.log(projects);
+          var i = 1;
           projects.forEach(function(project) {
             /////
             $.ajax({
@@ -151,10 +152,21 @@ console.log('dddddddddddddddddddddddddddddd');
                     var name_id = "name" + project.project_id;
                     var textarea_id = "desc" + project.project_id;
                     var addr_id = project.project_id;
+
                     // Append TR
-                    var tr = $('tr[id="addr1"]').clone().attr("id", "addr"+addr_id).attr("data-id", 3);
+                    console.log(projectInformation.name);
+                    var tr = $('tr[id="addr0"]').clone().attr("id", project.project_id).attr("data-id", project.project_id);
                     $('tbody[class="ui-sortable"]').append(tr);
-                    //$("input[" + name_id + "]").val(projectInformation.name);
+                    //$("tr[id=" + project.project_id + "]").append("input[" + name_id + "]").val(projectInformation.name);
+                    console.log(projectInformation.name);
+                    $('input[name="name' + i + '"]').val(projectInformation.name);
+                    //$('input[name="name"'+i+'"]').val(projectInformation.name);
+                    //var td = $('td[data-name="name"]').clone();
+                    console.log(i);
+                    i++;
+                    //
+                    //$('td[data-name="name"]').val('placeholder='projectInformation.name);
+                    //var input = $().val(projectInformation.name);
                      //$('textarea[name="desc1" + 'project.project_id']').val(projectInformation.note);
                   },
                   error:function(err){
