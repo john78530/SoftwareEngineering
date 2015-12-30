@@ -1,57 +1,102 @@
 //console.log('register');
 //var register  = function(){
 
-  var fake = [{},{
-    //name:"tony"
-    name:localStorage.getItem("projectName"),
-    date:"15-20",
-    desc:"haha",
-    type:"1"
-  },
-  {
-    name:"YEE",
-    date:"2000/10/20",
-    desc:"OMG",
-    type:"2"
-  },
-  {
+  $(document).ready(function () {
+    $("#add_row").click();
+    var req = [];
+    $.ajax({
+      url: 'http://140.124.181.160:8080/softwareEngineer/projects/' + localStorage.getItem("project_id"),
+      type:"GET",
+      success: function(msg){
+          // JSON get here
 
-    name:"Jonathan",
-    date:"1991-05-01",
-    desc:"meOOOOOOw",
-    type:"3"
-  },
-  {
+          project = eval(msg);
+          console.log(project);
+          var i = 1;
 
-    name:"human",
-    date:"00000",
-    desc:"i am a human",
-    type:"2"
-  }];
-  setTimeout(function() {
-    var e = document.getElementById("type");
-    //var strUser = e.options[e.selectedIndex].value;
-    for(var i in fake){
-      if(i==0) continue;
-      $('input[name="name'+i+'"]').val(fake[i].name);
-      $('input[name="date'+i+'"]').val(fake[i].date);
-      $('textarea[name="desc'+i+'"]').val(fake[i].desc);
-      $('select[name="action'+i+'"]>option[value="'+fake[i].type+'"]').attr("selected",true);
+          
+            /////
+            $.ajax({
+              url: 'http://140.124.181.160:8080/softwareEngineer/projects/' + localStorage.getItem("project_id") +'/requirements',
+              type:"GET",
+              dataType: "json",
+              success: function(msg){
+                var requirements = eval(msg);
+                jQuery.each(requirements , function(index, value){
+                console.log(value);
+                console.log(value.id);
+                console.log(value.name);
+                console.log(value.description);
+                console.log(i);
+                $('input[name="id' + i + '"]').val(value.id);
+                $('input[name="name' + i + '"]').val(value.name);
+                $('textarea[name="desc' + i + '"]').val(value.description);
+                $("#add_row").click();
+                i++;
+               });
+              },
+              error:function(err){
+                console.log(err);
+              }
+            });
+            /////
 
-      $("#add_row").click();
+          },
+          error:function(err){
+            console.log(err);
+            $.msgBox({
+             title: "Ooops",
+             content: "ERROR occurred!!!",
+             type: "error",
+             showButtons: false,
+             opacity: 0.9,
+             autoClose:true
+           });
+          }
+        });
+});
+
+console.log('newReq');
+var newReq  = function(_name, _desc){
+  
+  var obj = {
+    name: _name,
+    description: _desc,
+    comment: " "
+  };
+  console.log(JSON.stringify(obj));
+  $.ajax({
+   //api的url
+   url: "http://140.124.181.160:8080/softwareEngineer/projects/"+ localStorage.getItem("project_id")+"/requirements",
+   method: 'post',
+   dataType: 'json',
+   contentType: 'application/json',
+   data: JSON.stringify(obj),
+   error: function(err) {
+     console.log(err);
+     $.msgBox({
+      title: "Ooops",
+      content: "ERROR occurred!!!",
+      type: "error",
+      showButtons: false,
+      opacity: 0.9,
+      autoClose:true
+    });
+
+      // $('#info').html('<p>An error has occurred</p>');
+    },
+    success: function(data) {
+      console.log(data);
     }
-    //$('option#type').val(fake[0].type);
-  }, 1000);
-  //  var req = {
-  //   reqName:$('#name')[0].value,
-  //   reqDate: $('#date')[0].value,
-  //   reqDescription: $('#description')[0].value
-  //   reqType: $('#type')[0].value
-  // };
+    
 
-  //  var req = {
-  //   reqName:$('#name')"testName"
-  //   reqDate: $('#name')"2015/12/12"
-  //   reqDescription:$('#name')"testDES"
-  //   reqType:$('#name')"bug"
-  // };
+  });
+}
+
+var add_req = function(elem){
+    console.log(elem);
+    var name = $("[name='name"+elem.name+"']").val();
+    var desc = $("[name='desc"+elem.name+"']").val();
+    console.log(name+" "+desc);
+    newReq(name, desc);
+}

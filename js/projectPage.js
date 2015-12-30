@@ -1,4 +1,5 @@
 $(document).ready(function () {
+ 
     $(".btn-select").each(function (e) {
         var value = $(this).find("ul li.selected").html();
         if (value != undefined) {
@@ -8,6 +9,51 @@ $(document).ready(function () {
     });
 
 
+    var projects = [];
+  $.ajax({
+        url: 'http://140.124.181.160:8080/softwareEngineer/member/' + localStorage.getItem("user_id"),
+        type:"GET",
+        success: function(msg){
+          // JSON get here
+          projects = eval(msg);
+          console.log(projects);
+          var i = 0;
+          projects.forEach(function(project) {
+            /////
+            $.ajax({
+                  url: 'http://140.124.181.160:8080/softwareEngineer/projects/' + project.project_id,
+                  type:"GET",
+                  success: function(msg){
+                    var projectInformation = eval(msg);
+                    console.log(projectInformation);
+                    console.log(projectInformation.name);
+                    console.log(projectInformation.note);
+                    console.log(i);
+                    $('input[name="name' + i + '"]').val(projectInformation.name);
+                    $('textarea[name="desc' + i + '"]').val(projectInformation.note);
+                    $("[data-id='"+i+"']>td>button>input").val(projectInformation.id);
+                    $("#add_row").click();
+                    i++;
+                  },
+                  error:function(err){
+                    console.log(err);
+                  }
+            });
+            /////
+          });
+        },
+        error:function(err){
+          console.log(err);
+          $.msgBox({
+           title: "Ooops",
+           content: "ERROR occurred!!!",
+           type: "error",
+           showButtons: false,
+           opacity: 0.9,
+           autoClose:true
+         });
+        }
+  });
 
 
 });
@@ -82,6 +128,11 @@ var newProject  = function(_name, _desc){
   });
 }
 
+var gopage = elem => {
+  console.log(elem.childNodes[1].value);
+  localStorage.setItem("project_id", elem.childNodes[1].value);
+  location.href = "./req.html"
+}
 
 var add_proj = function(elem){
     console.log(elem);
@@ -89,7 +140,6 @@ var add_proj = function(elem){
     var desc = $("[name='desc"+elem.name+"']").val();
     console.log(name+" "+desc);
     newProject(name, desc);
-
 }
 /*
 console.log('getProjects');
@@ -131,66 +181,7 @@ console.log('dddddddddddddddddddddddddddddd');
 /////////////////////////
 
   // Get all Projects
-  var projects = [];
-  $.ajax({
-        url: 'http://140.124.181.160:8080/softwareEngineer/member/' + localStorage.getItem("user_id"),
-        type:"GET",
-        success: function(msg){
-          // JSON get here
-          projects = eval(msg);
-          console.log(projects);
-          var i = 1;
-          projects.forEach(function(project) {
-            /////
-            $.ajax({
-                  url: 'http://140.124.181.160:8080/softwareEngineer/projects/' + project.project_id,
-                  type:"GET",
-                  success: function(msg){
-                    var projectInformation = eval(msg);
-                    console.log(projectInformation);
-                    // 塞到畫面上
-                    var name_id = "name" + project.project_id;
-                    var textarea_id = "desc" + project.project_id;
-                    var addr_id = project.project_id;
-
-                    // Append TR
-                    console.log(projectInformation.name);
-                    var tr = $('tr[id="addr0"]').clone().attr("id", project.project_id).attr("data-id", project.project_id);
-                    $('tbody[class="ui-sortable"]').append(tr);
-                    //$("tr[id=" + project.project_id + "]").append("input[" + name_id + "]").val(projectInformation.name);
-                    console.log(projectInformation.name);
-                    $('input[name="name' + i + '"]').val(projectInformation.name);
-                    //$('input[name="name"'+i+'"]').val(projectInformation.name);
-                    //var td = $('td[data-name="name"]').clone();
-                    console.log(i);
-                    i++;
-                    //
-                    //$('td[data-name="name"]').val('placeholder='projectInformation.name);
-                    //var input = $().val(projectInformation.name);
-                     //$('textarea[name="desc1" + 'project.project_id']').val(projectInformation.note);
-                  },
-                  error:function(err){
-                    console.log(err);
-                  }
-            });
-            /////
-          });
-          // // 動態產生 TR 去塞資料
-          // $('tbody[class="ui-sortable"]').append("<div>SSSSSSSSSSSSSSSSSSSSSSSSSSSSs</div>");
-        },
-        error:function(err){
-          console.log(err);
-          $.msgBox({
-           title: "Ooops",
-           content: "ERROR occurred!!!",
-           type: "error",
-           showButtons: false,
-           opacity: 0.9,
-           autoClose:true
-         });
-        }
-  });
-
+  
 
 
 

@@ -11,16 +11,16 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/DynamicSortableTable.js"></script>
     <script type="text/javascript" src="js/req.js"></script>
-	<title></title>
+    <title></title>
 
-	<!-- Bootstrap Core CSS -->
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Custom CSS -->
-	<link href="css/logo-nav.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/logo-nav.css" rel="stylesheet">
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -61,110 +61,116 @@
                 <!--
                 <li>
                   <a href="./review.html">Review</a>
-                </li>-->
-    					<li>
-    						<a href="./matrix.html">Matrix</a>
-    					</li>
-    				</ul>
-						<ul class="nav navbar-nav navbar-right">
-                <li><a href="./index.html" style="padding:0;">
-                  <input onclick="" type="button" value="Logout" class="btn btn-primary btn-block btn-lg" tabindex="7">
-                </a>
-                </li>
-						</ul>
+              </li>-->
+              <li>
+                  <a href="./matrix.html">Matrix</a>
+              </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./index.html" style="padding:0;">
+              <input onclick="" type="button" value="Logout" class="btn btn-primary btn-block btn-lg" tabindex="7">
+          </a>
+      </li>
+  </ul>
 
-    			</div>
-    			<!-- /.navbar-collapse -->
-    		</div>
-    		<!-- /.container -->
-    	</nav>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+<!-- /.container -->
+</nav>
 
-    	<!-- Page Content -->
-        <script>
-        function myFunction() {
+<!-- Page Content -->
+<script>
+function myFunction() {
 
-        }
+}
 
-        </script>
+</script>
 
 
-    	<div class="container-full">
-    		<link rel="stylesheet" type="text/css" href="css/test.css">
-    		<div class="row">
-    			<div class="col-lg-12 text-center v-center">
-    				<h1>REQ</h1>
-    				<!--<p class="lead">...</p>-->
-    				<br>
-    				<form class="col-lg-12">
-    				</form>
-    			</div>
-    		</div> <!-- /row -->
-
-    		<div class="container">
-    			<div class="container">
-    				<link rel="stylesheet" type="text/css" href="css/tablebackground.css">
-    				<a id="add_row"><i class="btn btn-success glyphicon glyphicon-plus pull-right" onclick="myFunction()"></i></a>
-    				<link rel="stylesheet" type="text/css" href="css/DynamicSortableTable.css">
-    				<br><br>
-    				<div class="row clearfix">
-    					<div class="col-md-12 table-responsive">
-    						<table class="table table-bordered table-hover table-sortable" id="tab_logic">
-    							<thead>
-    								<tr>
-											<th class="text-center">
-    										ID
-    									</th>
-    									<th class="text-center">
-    										Name
-    									</th>
-    									<th class="text-center">
-    										Date
-    									</th>
-    									<th class="text-center">
-    										Description
-    									</th>
-    									<th class="text-center">
-    										SubRequirement
-    									</th>
-											<th class="text-center">
-											 Related REQ ID
-										 </th>
-                      <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
-                      </th>
-                    </tr>
-                </thead>
-                <tbody>
-                	<tr id='addr0' data-id="0" class="hidden">
-										<td data-name="id">
-                			<input id="reqid" type="text" name='id0'  placeholder='id' class="form-control" disabled/>
-                		</td>
-                		<td data-name="name">
-                			<input id="name" type="text" name='name0'  placeholder='Name' class="form-control"/>
-                		</td>
-                		<td data-name="date">
-                			<input id="date" type="text" name='mail0' placeholder='Date' class="form-control" disabled/>
-                		</td>
-                		<td data-name="desc">
-                			<textarea id="description" rows="3" cols="30" name="desc0" placeholder="Description" class="form-control"></textarea>
-                		</td>
-                		<td data-name="subrequirement"><a>
-                            <input style="width:70%;display:inline;" id="subrequid" type="text" name='name0'  placeholder='subrequirement' class="form-control"/>
-                            <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
-                		</td>
-										<td data-name="related">
-										 <a>
-												 <input style="width:70%;display:inline;" id="relations" type="text" name='name0'  placeholder='relations' class="form-control"/>
-												 <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
-									 </td>
-                		<td data-name="delete">
-								        <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
-                				<button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
-                		</td>
-                	</tr>
-                </tbody>
-            </table>
-        </div>
+<div class="container-full">
+  <link rel="stylesheet" type="text/css" href="css/test.css">
+  <div class="row">
+     <div class="col-lg-12 text-center v-center">
+        <h1>REQ</h1>
+        <!--<p class="lead">...</p>-->
+        <br>
+        <form class="col-lg-12">
+        </form>
     </div>
+</div> <!-- /row -->
+
+<div class="container">
+ <div class="container">
+    <link rel="stylesheet" type="text/css" href="css/tablebackground.css">
+    <a id="add_row"><i class="btn btn-success glyphicon glyphicon-plus pull-right" onclick="myFunction()"></i></a>
+    <link rel="stylesheet" type="text/css" href="css/DynamicSortableTable.css">
+    <br><br>
+    <div class="row clearfix">
+       <div class="col-md-12 table-responsive">
+          <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+             <thead>
+                <tr>
+                 <th class="text-center">
+                  ID
+              </th>
+              <th class="text-center">
+                  Name
+              </th>
+              <th class="text-center">
+                  Date
+              </th>
+              <th class="text-center">
+                  Description
+              </th>
+              <th class="text-center">
+                  Comment
+              </th>
+              <th class="text-center">
+                  SubRequirement
+              </th>
+              <th class="text-center">
+                Related REQ ID
+            </th>
+            <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+       <tr id='addr0' data-id="0" class="hidden">
+          <td data-name="id">
+             <input id="reqid" type="text" name='id0'  placeholder='id' class="form-control" disabled/>
+         </td>
+         <td data-name="name">
+             <input id="name" type="text" name='name0'  placeholder='Name' class="form-control"/>
+         </td>
+         <td data-name="date">
+             <input id="date" type="text" name='mail0' placeholder='Date' class="form-control" disabled/>
+         </td>
+         <td data-name="desc">
+             <textarea id="description" rows="3" cols="30" name="desc0" placeholder="Description" class="form-control"></textarea>
+         </td>
+         <td data-name="comment">
+             <textarea id="comment" rows="3" cols="30" name="com0" placeholder="Comment" class="form-control"></textarea>
+         </td>
+         <td data-name="subrequirement"><a>
+            <input style="width:70%;display:inline;" id="subrequid" type="text" name='subreq0'  placeholder='subrequirement' class="form-control"/>
+            <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
+        </td>
+        <td data-name="related">
+         <a>
+           <input style="width:70%;display:inline;" id="relations" type="text" name='related0'  placeholder='relations' class="form-control"/>
+           <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
+       </td>
+       <td data-name="delete">
+        <button onclick="add_req(this)" class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
+        <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
+    </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 <br><br><br><br><br>

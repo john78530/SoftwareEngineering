@@ -1,4 +1,5 @@
 $(document).ready(function() {
+     
     $("#add_row").on("click", function() {
         // Dynamic Rows Code
         
@@ -55,9 +56,7 @@ $(document).ready(function() {
         $(tr).find("td button.row-remove").on("click", function() {
            $(this).closest("tr").remove();
        });
-        $(tr).find("td button.gopage").on("click", function() {
-            document.location.href="./req.html";
-       });
+       
 
         var today = new Date();
         var dd = today.getDate();
@@ -110,13 +109,6 @@ $(document).ready(function() {
 
 
 
-    $("#add_row").trigger("click");
+    //$("#add_row").trigger("click");
 });
-
-  $(document).ready(function(){
-    $("button#gopage").on('click',function(){
-      document.location.href="./req.html";
-     });
-  });
-
 
