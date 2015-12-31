@@ -2,6 +2,10 @@
 //var register  = function(){
 
   $(document).ready(function () {
+    var role =localStorage.getItem("role");
+    if(role!="Reviewer"){
+      $("#comment").prop('disabled', true);
+    }
     $("#add_row").click();
     var req = [];
     $.ajax({
@@ -91,6 +95,25 @@ var newReq  = function(_name, _desc){
     
 
   });
+}
+
+var req_proj = elem =>{
+  var req_id = $("[name='id"+elem.name+"']").val();
+  console.log(req_id);
+  
+  $.ajax({
+    url: "http://140.124.181.160:8080/softwareEngineer/projects/"+ localStorage.getItem("project_id")+"/requirements/"+req_id,
+         dataType: 'json',
+         method:'delete',
+         contentType: 'application/json',
+         
+         error: function(err) {
+          console.err(err);
+         },
+         success: function(data){
+          console.log(data);
+         }
+  })
 }
 
 var add_req = function(elem){

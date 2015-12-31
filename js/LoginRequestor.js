@@ -34,39 +34,4 @@ var login  = function(){
          });
         }
   });
-  ///////////
-
-  // $.ajax({
-  //  //api的url
-  //  url: 'http://140.124.181.160:8080/softwareEngineer/Login',
-  //  dataType: 'json',
-  //  contentType: 'application/json',
-  //  data: JSON.stringify(obj),
-  //  error: function(err) {
-  //    console.log(err);
-  //    $.msgBox({
-  //     title: "Ooops",
-  //     content: "ERROR occurred!!!",
-  //     type: "error",
-  //     showButtons: false,
-  //     opacity: 0.9,
-  //     autoClose:true
-  //   });
-  //
-  //     // $('#info').html('<p>An error has occurred</p>');
-  //   },
-  //   success: function(data) {
-  //     // var $title = $('<h1>').text(data.talks[0].talk_title);
-  //     // var $description = $('<p>').text(data.talks[0].talk_description);
-  //     // $('#info')
-  //     //    .append($title)
-  //     //    .append($description);
-  //     var userData = eval(msg);
-  //     console.log(userData);
-  //     //localStorage.setItem("id", userData.id);
-  //     //location.href = "http://john78530.github.io/project.html";
-  //   },
-  //   method: 'post'
-  //
-  // });
 }
