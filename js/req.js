@@ -35,6 +35,7 @@
                 $('input[name="id' + i + '"]').val(value.id);
                 $('input[name="name' + i + '"]').val(value.name);
                 $('textarea[name="desc' + i + '"]').val(value.description);
+                $('textarea[name="comment' + i + '"]').val(value.comment);
                 $("#add_row").click();
                 i++;
                });
@@ -61,18 +62,56 @@
 });
 
 console.log('newReq');
-var newReq  = function(_name, _desc){
+var newReq  = function(_id, _name, _desc, _comm){
   
   var obj = {
     name: _name,
     description: _desc,
-    comment: " "
+    comment: _comm
   };
   console.log(JSON.stringify(obj));
   $.ajax({
    //api的url
    url: "http://140.124.181.160:8080/softwareEngineer/projects/"+ localStorage.getItem("project_id")+"/requirements",
    method: 'post',
+   dataType: 'json',
+   contentType: 'application/json',
+   data: JSON.stringify(obj),
+   error: function(err) {
+     console.log(err);
+     $.msgBox({
+      title: "Ooops",
+      content: "ERROR occurred!!!",
+      type: "error",
+      showButtons: false,
+      opacity: 0.9,
+      autoClose:true
+    });
+
+      // $('#info').html('<p>An error has occurred</p>');
+    },
+    success: function(data) {
+      console.log(data);
+    }
+    
+
+  });
+}
+
+var editReq  = function(_id, _name, _desc, _comm){
+  
+  var obj = {
+    name: _name,
+    description: _desc,
+    comment: _comm,
+    type: "",
+    hadfix: false,
+  };
+  console.log(JSON.stringify(obj));
+  $.ajax({
+   //api的url
+   url: "http://140.124.181.160:8080/softwareEngineer/projects/"+ localStorage.getItem("project_id")+"/requirements/"+_id,
+   method: 'put',
    dataType: 'json',
    contentType: 'application/json',
    data: JSON.stringify(obj),
@@ -118,8 +157,14 @@ var req_proj = elem =>{
 
 var add_req = function(elem){
     console.log(elem);
+
+    var id = $("[name='id"+elem.name+"']").val();
     var name = $("[name='name"+elem.name+"']").val();
     var desc = $("[name='desc"+elem.name+"']").val();
-    console.log(name+" "+desc);
-    newReq(name, desc);
+    var comm = $("[name='comment"+elem.name+"']").val();
+    if(id==""){
+      newReq(id, name, desc, comm);
+    }
+    else 
+      editReq(id, name, desc, comm);
 }

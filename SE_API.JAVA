@@ -49,7 +49,7 @@ projects/{projectId}/requirements{
 	@POST
 		name,
 		description,
-		command
+		comment
 	@GET (get all requirements in project)
 
 	@GET
@@ -59,7 +59,7 @@ projects/{projectId}/requirements{
 		/{requirementId}
 			name,
 			description,
-			command,
+			comment,
 			Type,
 			hadfix
 }

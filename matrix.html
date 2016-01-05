@@ -1,12 +1,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/matrix.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <meta charset=utf-8 />
 
 
 
 <head>
-
+  <style type="text/css">
+    th{
+      width:8%;
+    }
+  </style>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,10 +102,17 @@
 
           <div class="row">
 
+            <link rel="stylesheet" type="text/css" href="css/DynamicSortableTable.css">
             <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
               <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
             </div>
+          <div style="margin-left:16%;" class=" col-lg-8 col-md-8 col-sm-8 ">
+            <table  class="table table-reflow">
+  
+  <tbody id="matrix">
 
+  </tbody>
+</table></div>
           </div>
 
           <br><br><br><br><br>
