@@ -9,13 +9,13 @@
   <script src="js/jquery-ui.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/DynamicSortableTable.js"></script>
+  <script src="js/test.js"></script>
   <script>
   $(document).ready(function(){
     $("button#gopage").on('click',function(){
       document.location.href="./req.html";
     });
   })
-
   </script>
 
   <title></title>
@@ -64,10 +64,6 @@
                 <li>
                   <a href="./test.html">Test</a>
                 </li>
-                <!--
-                <li>
-                  <a href="./review.html">Review</a>
-                </li>-->
                 <li>
                   <a href="./matrix.html">Matrix</a>
                 </li>
@@ -121,9 +117,6 @@
                         <th class="text-center">
                           Description
                         </th>
-<!--                         <th class="text-center">
-                          Status
-                        </th> -->
 
                         <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
                         </th>
@@ -131,15 +124,12 @@
                     </thead>
                     <tbody>
                       <tr id='addr0' data-id="0" class="hidden">
-                        <!-- <td data-name="go">
-                         <button id="gopage" class='btn btn-success glyphicon glyphicon-arrow-right'></button>
-                       </td> -->
                        <td data-name="name">
                         <input type="text" name='name0'  placeholder='Test ID' class="form-control" disabled/>
                       </td>
                        <td data-name="related">
                         <a>
-                            <input style="width:70%;display:inline;" id="relations" type="text" name='name0'  placeholder='relations' class="form-control"/>
+                            <input style="width:70%;display:inline;" id="relations" type="text" name='related0'  placeholder='relations' class="form-control"/>
                             <button class="btn btn-primary glyphicon glyphicon glyphicon-edit"></button></a>
                       </td>
                       <td data-name="desc">
@@ -149,7 +139,7 @@
                         <span id="status" class="label-success label label-default">Active</span>
                       </td>-->
                       <td data-name="del">
-                        <button class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
+                        <button onclick="add_proj(this)" class="btn btn-primary glyphicon glyphicon glyphicon-floppy-disk"></button>
                         <!-- <button class="btn btn-info glyphicon glyphicon-user"></button> -->
                         <button class='btn btn-danger glyphicon glyphicon-trash row-remove'></button>
                       </td>
@@ -159,25 +149,11 @@
               </div>
             </div>
           </div>
-
-
         </div>
-
         <br><br><br><br><br>
-
       </div>
-
-
-
-
-
-
-
-
       <!-- /.container -->
 
       <!-- jQuery -->
-
-
     </body>
     <!-- /container full -->
