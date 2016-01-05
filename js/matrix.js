@@ -69,13 +69,13 @@ $(document).ready(function(){
                   theader = "";
                   console.log("!");
                 	theader += "<tr><td scope='row'>"+value.name+"</td>";
-                	for(var i = projectNum-1; i>=0; i--){
+                	for(var i = 0; i<projectNum; i++){
                 		if(value.requirementid==pid[i]){
-                      theader+="<td>"+value.requirementid;
+                      theader+="<td><span class='glyphicon glyphicon-record' aria-hidden='true'></span>";//glyphicon glyphicon-record
                       theader+="</td>";
                     }
                     else{
-                      theader+="<td>0</td>"
+                      theader+="<td></td>"
                     }
                   };
                   theader +="</tr>";

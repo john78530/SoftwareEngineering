@@ -5,6 +5,8 @@
     var role =localStorage.getItem("role");
     if(role!="Reviewer"){
       $("#comment").prop('disabled', true);
+    }else{
+      $("#description").prop('disabled', true);
     }
     $("#add_row").click();
     var req = [];
