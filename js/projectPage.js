@@ -154,7 +154,10 @@ var gopage = elem => {
   var role = $("[name='role"+name+"']").val();
   localStorage.setItem("role", role);
   //console.log(localStorage.setItem("role", role));
+  setTimeout(function() {
   location.href = "./req.html";
+
+  }, 500);
 }
 
 
